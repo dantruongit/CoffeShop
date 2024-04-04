@@ -51,15 +51,15 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
         child: Container(
           width: MediaQuery.of(context).size.width / 2,
           height: 80,
-          child: Center(
-              child: new Text("Log In",
-                  style: const TextStyle(
-                      color: const Color(0xfffefefe),
+          child: const Center(
+              child: Text("Log In",
+                  style:  TextStyle(
+                      color: Color(0xfffefefe),
                       fontWeight: FontWeight.w600,
                       fontStyle: FontStyle.normal,
                       fontSize: 20.0))),
           decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                   colors: [
                     Color.fromRGBO(236, 60, 3, 1),
                     Color.fromRGBO(234, 60, 3, 1),

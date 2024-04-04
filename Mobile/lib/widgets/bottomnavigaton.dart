@@ -47,11 +47,11 @@ class _PageNavigationState extends State<PageNavigation> {
     BottomNavigationBarItem(
       icon: Consumer<Cart>(
         builder: (context, value, child) {
-          if (value.totalquantity <= 0) {
+          if (value.totalQuantity <= 0) {
             return const Icon(Icons.shopping_cart_outlined, size: 25);
           } else {
             return badges.Badge(
-                badgeContent: Text('${value.totalquantity}'),
+                badgeContent: Text('${value.totalQuantity}'),
                 child: const Icon(
                   Icons.shopping_cart_outlined,
                   size: 30,

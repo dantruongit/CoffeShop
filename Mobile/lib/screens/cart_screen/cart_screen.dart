@@ -85,7 +85,7 @@ class CartScreen extends StatelessWidget {
             children: [
               TotalCart(
                   tital: 'Qty',
-                  value: '${cart.totalquantity}',
+                  value: '${cart.totalQuantity}',
                   fit: BoxFit.contain),
               TotalCart(
                   fit: BoxFit.cover,

@@ -29,18 +29,18 @@ class Cart extends ChangeNotifier {
 
   double get totalAmount {
     double total = 0.0;
-    items.forEach((key, cartitem) {
-      total += cartitem.amount * cartitem.quantity;
+    items.forEach((key, cartItem) {
+      total += cartItem.amount * cartItem.quantity;
     });
     return total;
   }
 
-  int get totalquantity {
-    int totalqty = 0;
-    items.forEach((key, cartitem) {
-      totalqty += cartitem.quantity;
+  int get totalQuantity {
+    int totalQty = 0;
+    items.forEach((key, cartItem) {
+      totalQty += cartItem.quantity;
     });
-    return totalqty;
+    return totalQty;
   }
 
   void addItem(String id, double amount, String title, String image,

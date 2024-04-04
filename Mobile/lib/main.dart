@@ -1,6 +1,7 @@
 import 'package:cofeeshop/provider/cart.dart';
 import 'package:cofeeshop/provider/coffeedata.dart';
 import 'package:cofeeshop/provider/orders.dart';
+import 'package:cofeeshop/provider/user.dart';
 import 'package:cofeeshop/screens/authenciation/login.dart';
 import 'package:cofeeshop/screens/cart_screen/cart_screen.dart';
 import 'package:cofeeshop/screens/coffee_description/coffee_description.dart';
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => Orders(),
         ),
+        ChangeNotifierProvider(
+            create: (_) => User()
+        )
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
