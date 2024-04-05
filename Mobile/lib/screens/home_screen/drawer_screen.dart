@@ -1,7 +1,9 @@
 import 'package:cofeeshop/screens/settings/settings_page.dart';
 import 'package:cofeeshop/screens/wallet/wallet_page.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../constants.dart';
+import '../../provider/user.dart';
 import '../order_historyScreen/orders_histroy.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -12,6 +14,7 @@ class DrawerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
     return Drawer(
       backgroundColor: kprimarycolor,
       shape: const RoundedRectangleBorder(
@@ -23,30 +26,20 @@ class DrawerScreen extends StatelessWidget {
       child: ListView(
         children: [
           SizedBox(height: 20,),
-          const CircleAvatar(
+          CircleAvatar(
             radius: 80,
-            backgroundImage: NetworkImage(
-              'https://images.pexels.com/photos/6976943/pexels-photo-6976943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-            ),
+            backgroundImage: NetworkImage(user.image),
           ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              'Hello, MrShen',
+              'Hello, ${user.name}',
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 20,
                   color: klightgrycolor,
                   fontWeight: FontWeight.w500),
             ),
-          ),
-          DrawerTile(
-            icon: Icons.shopping_bag_rounded,
-            title: 'My orders',
-            onpressed: (){
-              Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => const OrderHistoryScreen()));
-            },
           ),
           DrawerTile(
               title: 'Wallet & Coupons', icon: Icons.wallet,

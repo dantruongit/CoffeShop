@@ -8,7 +8,6 @@ import 'package:cofeeshop/screens/coffee_description/coffee_description.dart';
 import 'package:cofeeshop/screens/favorate%20&%20orderconfrom/order_conform.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'widgets/bottomnavigaton.dart';
 
 void main() {
   runApp(const MyApp());

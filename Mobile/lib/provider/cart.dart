@@ -43,6 +43,14 @@ class Cart extends ChangeNotifier {
     return totalQty;
   }
 
+  void loadItem(List<CartItems> cartItems){
+    _items.clear();
+    for(CartItems cI in cartItems){
+      _items[cI.id] = cI; // Gán giá trị trực tiếp
+    }
+    notifyListeners();
+  }
+
   void addItem(String id, double amount, String title, String image,
       String description) {
     if (_items.containsKey(id)) {

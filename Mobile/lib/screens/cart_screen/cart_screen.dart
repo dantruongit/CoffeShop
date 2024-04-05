@@ -20,6 +20,7 @@ class CartScreen extends StatelessWidget {
         centerTitle: true,
         title: const Text('Cart'),
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
       ),
       body: cart.items.isEmpty ? emptyCart() : cartView(cart, context),
     );

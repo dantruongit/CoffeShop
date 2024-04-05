@@ -18,7 +18,8 @@ class Coffee extends ChangeNotifier {
       required this.image,
       required this.amount,
       required this.description,
-      this.isFavarate = false});
+      this.isFavarate = false}
+      );
 
   void setSize(CoffeeSize size) {
     this.size = size;

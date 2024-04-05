@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:cofeeshop/constants.dart';
 import 'package:cofeeshop/screens/home_screen/widget/coffee_view.dart';
+import 'package:provider/provider.dart';
+import '../../provider/user.dart';
 import 'drawer_screen.dart';
 
 class MyHomePage extends StatelessWidget {
   static const routName = '/Home_page';
   const MyHomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       key: scaffoldKey,
@@ -23,14 +25,12 @@ class MyHomePage extends StatelessWidget {
           },
           icon: kgradiantIcon(Icons.sort_rounded),
         ),
-        actions: const [
+        actions: [
           Padding(
             padding: EdgeInsets.all(2.0),
             child: CircleAvatar(
               radius: 20,
-              backgroundImage: NetworkImage(
-                'https://images.pexels.com/photos/6976943/pexels-photo-6976943.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-              ),
+              backgroundImage: NetworkImage(user.image),
             ),
           ),
         ],

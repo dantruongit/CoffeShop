@@ -1,3 +1,4 @@
+import 'package:cofeeshop/service/service.dart';
 import 'package:flutter/material.dart';
 
 import '../authenciation/login.dart';
@@ -10,6 +11,7 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Service.gI().getUser(context);
     return CustomPaint(
       painter: MainBackground(),
       child: Scaffold(
@@ -58,6 +60,7 @@ class SettingsPage extends StatelessWidget {
                     icon: Icons.logout,
                     title: 'Sign out',
                     onpressed: (){
+                      Service.gI().logout(user);
                       Navigator.of(context)
                           .push(MaterialPageRoute(builder: (_) => WelcomeBackPage()));
                     },

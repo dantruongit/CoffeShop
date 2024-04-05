@@ -15,6 +15,8 @@ class OrderHistoryScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Order History'),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
       ),
       body: orders.isEmpty
           ? Center(

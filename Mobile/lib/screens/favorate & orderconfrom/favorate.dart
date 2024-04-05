@@ -21,6 +21,8 @@ class FavoriteView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Favorites'),
+        automaticallyImplyLeading: false,
+        centerTitle: true,
       ),
       body: favoriteCoffees.isEmpty
           ? Center(

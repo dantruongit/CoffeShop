@@ -26,6 +26,14 @@ class Orders extends ChangeNotifier {
     return [..._orders];
   }
 
+  void loadOrders(List<OrdersItem> orders){
+    _orders.clear();
+    for(var order in orders){
+      _orders.insert(0, order);
+    }
+    notifyListeners();
+  }
+
   void addOrders(List<CartItems> cartProducts, double total) {
     List<CartItem> products = cartProducts
         .map((cartItem) => CartItem(

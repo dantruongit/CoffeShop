@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="NONE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dbb001fe-6993-4ac9-bb17-2a48137e5fc9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Mobile/lib/service/service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/provider/cart.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/provider/cart.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/provider/coffee.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/provider/coffee.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/provider/coffeedata.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/provider/coffeedata.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/provider/orders.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/provider/orders.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/provider/user.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/provider/user.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/authenciation/login.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/authenciation/login.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/authenciation/register_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/authenciation/register_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/cart_screen/cart_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/cart_screen/cart_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/cart_screen/widget/cart_item.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/cart_screen/widget/cart_item.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/favorate &amp; orderconfrom/favorate.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/favorate &amp; orderconfrom/favorate.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/drawer_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/drawer_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/widget/coffee_view.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/widget/coffee_view.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/widget/itemcard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/home_screen/widget/itemcard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/order_historyScreen/orders_histroy.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/order_historyScreen/orders_histroy.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/lib/screens/settings/settings_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/lib/screens/settings/settings_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Mobile/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Mobile/pubspec.yaml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ec8OTBY1UJM0UXhiX1gquWNafT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/cr4zyb0t/Desktop/Github/CoffeShop&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Codes\Flutter\CoffeShop\assets" />
+      <recent name="D:\Codes\Flutter\CoffeShop\lib\screens" />
+      <recent name="D:\Codes\Flutter\CoffeShop\lib\screens\other" />
+      <recent name="D:\Codes\Flutter\CoffeShop\lib\screens\authenciation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Codes\Flutter\CoffeShop\lib\screens" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="main.dart" type="FlutterRunConfigurationType" factoryName="Flutter">
+      <option name="filePath" value="$PROJECT_DIR$/lib/main.dart" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dbb001fe-6993-4ac9-bb17-2a48137e5fc9" name="Changes" comment="" />
+      <created>1712192473919</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712192473919</updated>
+    </task>
+    <servers />
+  </component>
+</project>

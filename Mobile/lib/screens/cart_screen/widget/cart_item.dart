@@ -7,13 +7,13 @@ import '../../../constants.dart';
 class CartItem extends StatelessWidget {
   const CartItem({
     Key? key,
-    required this.image,
-    required this.title,
-    required this.prodcutid,
-    required this.id,
-    required this.amount,
-    required this.qunatity,
-    required this.description,
+    required this.image, // ok
+    required this.title, // ok
+    required this.prodcutid, // ok
+    required this.id, //ok
+    required this.amount, // ok
+    required this.qunatity, // ok
+    required this.description, // ok
   }) : super(key: key);
   final String image;
   final String title;

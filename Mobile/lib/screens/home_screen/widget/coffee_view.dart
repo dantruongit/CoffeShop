@@ -10,7 +10,7 @@ class CoffeeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final coffeedata = Provider.of<CofeeData>(context, listen: false);
+    final coffeedata = Provider.of<CofeeData>(context, listen: true);
     final cart = Provider.of<Cart>(context, listen: false);
 
     final deviceSize = MediaQuery.of(context).size;

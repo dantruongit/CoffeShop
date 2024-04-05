@@ -1,3 +1,4 @@
+import 'package:cofeeshop/service/service.dart';
 import 'package:flutter/material.dart';
 
 const LinearGradient mainButton = LinearGradient(colors: [
@@ -12,17 +13,13 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  TextEditingController email =
-      TextEditingController(text: 'example@email.com');
-
-  TextEditingController password = TextEditingController(text: '12345678');
-
-  TextEditingController cmfPassword = TextEditingController(text: '12345678');
-
+  TextEditingController email = TextEditingController(text: '');
+  TextEditingController password = TextEditingController(text: '');
+  TextEditingController fullName = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
-    Widget title = Text(
+    Widget title = const Text(
       'Glad To Meet You',
       style: TextStyle(
           color: Colors.white,
@@ -37,8 +34,8 @@ class _RegisterPageState extends State<RegisterPage> {
           ]),
     );
 
-    Widget subTitle = Padding(
-        padding: const EdgeInsets.only(right: 56.0),
+    Widget subTitle = const Padding(
+        padding: EdgeInsets.only(right: 56.0),
         child: Text(
           'Create your new account for future uses.',
           style: TextStyle(
@@ -51,9 +48,28 @@ class _RegisterPageState extends State<RegisterPage> {
       left: MediaQuery.of(context).size.width / 4,
       bottom: 40,
       child: InkWell(
-        onTap: () {
-          // Navigator.of(context)
-          //     .push(MaterialPageRoute(builder: (_) => ForgotPasswordPage()));
+        onTap: () async {
+          String usr = email.value.text;
+          String pwd = password.value.text;
+          String name = fullName.value.text;
+
+          bool isRegistered = await Service.gI().register(usr, pwd, name);
+          if(isRegistered){
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Đăng ký thành công !'),
+                duration: Duration(seconds: 2),
+              ),
+            );
+          }
+          else{
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                content: Text('Đăng ký thất bại !'),
+                duration: Duration(seconds: 2),
+              ),
+            );
+          }
         },
         child: Container(
           width: MediaQuery.of(context).size.width / 2,
@@ -80,11 +96,11 @@ class _RegisterPageState extends State<RegisterPage> {
     );
 
     Widget registerForm = Container(
-      height: 300,
+      height: 350,
       child: Stack(
         children: <Widget>[
           Container(
-            height: 220,
+            height: 300,
             width: MediaQuery.of(context).size.width,
             padding: const EdgeInsets.only(left: 32.0, right: 32.0),
             margin: const EdgeInsets.all(10.0),
@@ -97,24 +113,26 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
+                    decoration: const InputDecoration(hintText: 'Your username'),
                     controller: email,
-                    style: TextStyle(fontSize: 16.0),
+                    style: const TextStyle(fontSize: 16.0),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
+                    decoration: const InputDecoration(hintText: 'Your password'),
                     controller: password,
-                    style: TextStyle(fontSize: 16.0),
+                    style: const TextStyle(fontSize: 16.0),
                     obscureText: true,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 8.0),
                   child: TextField(
-                    controller: cmfPassword,
-                    style: TextStyle(fontSize: 16.0),
-                    obscureText: true,
+                    decoration: const InputDecoration(hintText: 'Your name'),
+                    controller: fullName,
+                    style: const TextStyle(fontSize: 16.0),
                   ),
                 ),
               ],

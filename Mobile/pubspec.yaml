@@ -47,6 +47,7 @@ dependencies:
   searchfield: ^0.7.5
   flutter_svg: ^2.0.2
   url_launcher: ^6.1.11
+  http: ^0.13.6
 
 dev_dependencies:
   flutter_test:

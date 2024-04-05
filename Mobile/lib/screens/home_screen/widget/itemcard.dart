@@ -60,11 +60,10 @@ class ItemCard extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: RichText(
-              text: TextSpan(text: '${coffeindex.title}\n', children: [
-                TextSpan(
-                    text: coffeindex.description,
-                    style: const TextStyle(fontSize: 10, color: Colors.grey))
-              ]),
+              text:
+              TextSpan(text: '${coffeindex.title}\n',
+                  style: const TextStyle(color: Colors.white),
+                  children: [TextSpan(text: coffeindex.description, style: const TextStyle(fontSize: 10, color: Colors.grey))]),
             ),
           ),
           Row(
