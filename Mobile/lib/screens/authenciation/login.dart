@@ -54,10 +54,14 @@ class _WelcomeBackPageState extends State<WelcomeBackPage> {
           String pwd = password.value.text;
           bool isSuccess = await Service.gI().checkLogin(usr, pwd, user) ;
           if(isSuccess) {
-            Service.gI().getCoffees(coffeeData);
-            Service.gI().getUserCart(user, cart);
-            Service.gI().getUserOrder(user, orders);
-
+            Service.gI().getCoffees(coffeeData, user);
+            Future.delayed(const Duration(seconds: 1), (){
+              Service.gI().getUserCart(user, cart);
+            });
+            Future.delayed(const Duration(seconds: 2), (){
+              Service.gI().getUserBalance(user);
+            });
+            //Service.gI().getUserOrder(user, orders);
             Navigator.of(context)
                 .push(MaterialPageRoute(builder: (_) => const PageNavigation()));
           }

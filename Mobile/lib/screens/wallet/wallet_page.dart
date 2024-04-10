@@ -1,6 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:cofeeshop/service/service.dart';
+import 'package:provider/provider.dart';
+
+import '../../provider/user.dart';
 
 class WalletPage extends StatefulWidget {
   @override
@@ -21,6 +25,10 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+
+    final balance = user.balance.toString();
+
     return Material(
       color: Colors.grey[100],
       child: SafeArea(
@@ -50,6 +58,7 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
+                  const SizedBox(height: 200,),
                   const Text('Current account balance',
                     style: TextStyle(
                       color: Colors.black,
@@ -57,12 +66,12 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                       fontSize: 24,
                     ),),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: EdgeInsets.all(16.0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const <Widget>[
-                        Text(
+                      children: <Widget>[
+                        const Text(
                           '\$',
                           style: TextStyle(
                             color: Colors.black,
@@ -70,9 +79,9 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                             fontSize: 48,
                           ),
                         ),
-                        SizedBox(width: 8.0),
-                        Text('54.24',
-                            style: TextStyle(
+                        const SizedBox(width: 8.0),
+                        Text(balance,
+                            style: const TextStyle(
                                 color: Colors.black,
                                 fontSize: 48,
                                 fontWeight: FontWeight.bold))
@@ -101,13 +110,13 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                                 painter: YellowDollarButton(),
                                 child: GestureDetector(
                                   onTap: () {
-                                    animController.addListener(() {
-                                      setState(() {});
-                                    });
-                                    if (openOptions.value == 300)
-                                      animController.reverse();
-                                    else
-                                      animController.forward();
+                                    // animController.addListener(() {
+                                    //   setState(() {});
+                                    // });
+                                    // if (openOptions.value == 300)
+                                    //   animController.reverse();
+                                    // else
+                                    //   animController.forward();
                                   },
                                   child: Container(
                                       width: 110,
@@ -120,59 +129,6 @@ class _WalletPageState extends State<WalletPage> with TickerProviderStateMixin {
                                                   fontSize: 32)))),
                                 )))
                       ],
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Text('Hot Deals'),
-                  ),
-                  Flexible(
-                    child: Container(
-                      height: 232,
-                      color: const Color(0xffFAF1E2),
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: 10,
-                        itemBuilder: (_, index) => Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                          padding: const EdgeInsets.all(16.0),
-                          width: 140,
-                          decoration: const BoxDecoration(
-                              color: Colors.white,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10))),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            mainAxisSize: MainAxisSize.min,
-                            children: const <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 16.0),
-                                child: Icon(Icons.tab),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 8.0),
-                                child: Text('Dicount Voucher',
-                                    style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold)),
-                              ),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 8.0),
-                                child: Text('10% off on any pizzahut products',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 10.0,
-                                    )),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     ),
                   )
                 ],

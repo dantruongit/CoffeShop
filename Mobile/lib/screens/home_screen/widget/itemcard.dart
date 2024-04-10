@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../constants.dart';
 import '../../../provider/cart.dart';
 import '../../../provider/coffee.dart';
+import '../../../provider/user.dart';
+import '../../../service/service.dart';
 import '../../../widgets/favaratebutton.dart';
 import '../../coffee_description/coffee_description.dart';
 
@@ -24,6 +27,8 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
+    final user = Provider.of<User>(context);
+
     return Container(
       width: deviceSize.width * 0.33,
       padding: const EdgeInsets.all(6),
@@ -90,6 +95,17 @@ class ItemCard extends StatelessWidget {
                       coffeindex.title,
                       coffeindex.image,
                       coffeindex.description);
+                  List<dynamic> items = [];
+                  for(var itemKey in cart.items.keys){
+                    CartItems? cartItem = cart.items[itemKey] ?? null;
+                    if(cartItem != null){
+                      items.add({
+                      'id_coffee' : itemKey,
+                      'quantity' : cartItem.quantity
+                      });
+                    }
+                  }
+                  Service.gI().addItemToCart(user, items);
                 },
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all(RoundedRectangleBorder(

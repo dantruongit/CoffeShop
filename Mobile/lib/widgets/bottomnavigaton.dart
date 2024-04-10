@@ -8,6 +8,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:badges/badges.dart' as badges;
 import '../constants.dart';
+import '../provider/orders.dart';
+import '../provider/user.dart';
+import '../service/service.dart';
 
 class PageNavigation extends StatefulWidget {
   const PageNavigation({
@@ -65,6 +68,9 @@ class _PageNavigationState extends State<PageNavigation> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+    final ods = Provider.of<Orders>(context);
+
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
         elevation: 0,
@@ -77,6 +83,9 @@ class _PageNavigationState extends State<PageNavigation> {
         onTap: (index) {
           setState(() {
             _currentIndex = index;
+            if(index == 2){
+              Service.gI().getUserOrder(user, ods);
+            }
             if (index == 1) {
               _bottomNavigationBarItems[1] = const BottomNavigationBarItem(
                 icon: Icon(

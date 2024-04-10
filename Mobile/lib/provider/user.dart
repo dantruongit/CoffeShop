@@ -4,11 +4,13 @@ class UserSession{
   late String jwtKey;
   late String imagePath = "http://localhost/guest.png";
   late String name;
+  late double balance = 0.0;
 
   void clear(){
     jwtKey = '';
     imagePath = "http://localhost/guest.png";
     name = '';
+    balance = 0.0;
   }
 }
 
@@ -36,6 +38,15 @@ class User extends ChangeNotifier{
 
   set key(String value){
     userSession.jwtKey = value;
+  }
+
+  double get balance{
+    return userSession.balance;
+  }
+
+  set balance(double value){
+    userSession.balance = value;
+    notifyListeners();
   }
 
   void login(String jwtKey, String name, String imagePath){

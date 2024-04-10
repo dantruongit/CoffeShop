@@ -9,13 +9,10 @@ class SqlConnector:
         self.conn = mysql.connector.connect(
             host="localhost",
             user="root",
-            password="admin",
-            database="CoffeShop"
+            password="",
+            database="coffe"
         )
-        print("Connected to database")
         self.cursor = self.conn.cursor()
-        for result in self.execute_query("SELECT * FROM User"):
-            print(result)
 
     def execute_query(self, query):
         self.cursor.execute(query)
@@ -49,8 +46,15 @@ class DataSource:
         if self.get_user(username, password) != None:
             return False
         try:
-            query = f"INSERT INTO User(username, password, imagePath, name) VALUES('{username}', '{password}','http://localhost/guest.png', '{fullname}')"
+            query = f"INSERT INTO User(username, password, imagePath, name) VALUES('{username}', '{password}','http://localhost/avatar/nidalee.png', '{fullname}')"
             self.sql.execute_insert_query(query)
             return True
         except:
             return False
+        
+    def get_coffe_by_id(self, id: str) -> Coffe:
+        query = f"SELECT * FROM Coffe WHERE id = '{id}'"
+        result = self.sql.execute_query(query)
+        if len(result) > 0:
+            return Coffe(result[0])
+        return None

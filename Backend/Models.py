@@ -1,6 +1,7 @@
 import json
 from Security import Security
 from datetime import datetime
+from config import ip_server
 
 sc = Security()
 
@@ -19,27 +20,33 @@ class Coffe:
     def __init__(self, data: tuple):
         self.id = data[0]
         self.title = data[1]
-        self.image = data[2]
+        self.image = str(data[2]).replace("localhost", ip_server)
         self.description = data[3]
         self.amount = data[4]
+        self.isFavorite = False
+
     def to_dict(self):
         return {
             "id": self.id,
             "title": self.title,
             "image": self.image,
             "description": self.description,
-            "amount": self.amount
+            "amount": self.amount,
+            "isFavorite": self.isFavorite
         }
 
 class CartItem:
-    def __init__(self, data: tuple):
-        self.id_user = data[0]
-        self.id_coffe = data[1]
-        self.quantity = data[2]
-        self.coffe = Coffe(data[3:])
+    def __init__(self, id_coffe, quantity, data: Coffe):
+        self.id_coffe = id_coffe
+        self.quantity = quantity
+        if data == None:
+            self.coffe = {}
+        else:
+            self.coffe = data
+            self.coffe.image = self.coffe.image.replace("localhost", ip_server)
+
     def to_dict(self):
         return {
-            "id_user": self.id_user,
             "id_coffe": self.id_coffe,
             "quantity": self.quantity,
             "coffe": self.coffe.to_dict()
@@ -76,6 +83,7 @@ class OrderItem:
         self.quantity = data[2]
         self.price = data[3]
         self.coffe = Coffe(data[4:])
+        self.coffe.image = self.coffe.image.replace("localhost", ip_server)
     
     def to_dict(self):
         return {

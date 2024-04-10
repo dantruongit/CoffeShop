@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../constants.dart';
 import '../../provider/user.dart';
+import '../../service/service.dart';
 import '../order_historyScreen/orders_histroy.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cofeeshop/service/service.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({
@@ -15,6 +17,7 @@ class DrawerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
+
     return Drawer(
       backgroundColor: kprimarycolor,
       shape: const RoundedRectangleBorder(
@@ -42,7 +45,7 @@ class DrawerScreen extends StatelessWidget {
             ),
           ),
           DrawerTile(
-              title: 'Wallet & Coupons', icon: Icons.wallet,
+              title: 'Wallet', icon: Icons.wallet,
               onpressed: (){
                 Navigator.of(context)
                     .push(MaterialPageRoute(builder: (_) => WalletPage()));
@@ -55,7 +58,7 @@ class DrawerScreen extends StatelessWidget {
               },),
           DrawerTile(title: 'About', icon: Icons.info_outline_rounded,
           onpressed: () async {
-            final Uri url = Uri.parse('https://www.facebook.com/dantruong.it');
+            final Uri url = Uri.parse(Service.author);
               if (!await launchUrl(url)) {
                 throw Exception('Could not launch $url');
               }

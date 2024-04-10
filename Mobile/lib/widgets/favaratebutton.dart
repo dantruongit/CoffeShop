@@ -1,5 +1,9 @@
 import 'package:cofeeshop/provider/coffee.dart';
 import 'package:flutter/material.dart';
+import 'package:cofeeshop/service/service.dart';
+import 'package:provider/provider.dart';
+
+import '../provider/user.dart';
  
 
 class FavoriteButton extends StatefulWidget {
@@ -15,12 +19,13 @@ class FavoriteButton extends StatefulWidget {
 class _FavoriteButtonState extends State<FavoriteButton> {
   @override
   Widget build(BuildContext context) {
- 
+    final user = Provider.of<User>(context);
+
     return IconButton(
       onPressed: () {
         setState(() {
           widget.coffee.isFavarate = !widget.coffee.isFavarate;
-           
+          Service.gI().updateFavorite(user, widget.coffee.id);
         });
       },
       icon: Icon(

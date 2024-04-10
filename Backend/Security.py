@@ -15,7 +15,7 @@ class Security:
             "username": username,
             "image" : image,
             "name" : name,
-            "exp": int(time.time() * 1000) +  120 * 60 * 1000 # Token expires in 120 minutes
+            "exp": int(time.time() * 1000) +  24 * 60 * 60 * 1000 # Token expires in 1 day
         }
         
         jwt_token = jwt.encode(claims, self.secret_key, algorithm='HS256')

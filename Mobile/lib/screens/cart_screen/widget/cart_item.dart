@@ -1,8 +1,10 @@
+import 'package:cofeeshop/provider/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:provider/provider.dart';
 import 'package:cofeeshop/provider/cart.dart';
 import '../../../constants.dart';
+import '../../../service/service.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({
@@ -26,6 +28,7 @@ class CartItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final user = Provider.of<User>(context);
     return Padding(
       padding: const EdgeInsets.all(4.0),
       child: Card(
@@ -39,6 +42,7 @@ class CartItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               onPressed: (context) {
                 Provider.of<Cart>(context, listen: false).removeItem(prodcutid);
+                Service.gI().removeItemInCart(user, prodcutid);
               },
               backgroundColor: Colors.redAccent,
               icon: Icons.delete,

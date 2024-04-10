@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:cofeeshop/constants.dart';
 import 'package:cofeeshop/provider/cart.dart';
 import '../../provider/orders.dart';
+import '../../provider/user.dart';
+import '../../service/service.dart';
 import '../../widgets/product_tile.dart';
 
 class OrderConfirmationScreen extends StatelessWidget {
@@ -18,6 +20,8 @@ class OrderConfirmationScreen extends StatelessWidget {
     final List<CartItems> items = args['items'];
     final double totalAmount = args['totalAmount'];
     final cart = Provider.of<Cart>(context);
+    final user = Provider.of<User>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Order Confirmation'),
@@ -73,12 +77,37 @@ class OrderConfirmationScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(
                     horizontal: MediaQuery.of(context).size.width * 0.25,
                     vertical: 15)),
-            onPressed: () {
-              Provider.of<Orders>(context, listen: false)
-                  .addOrders(cart.items.values.toList(), cart.totalAmount);
-              items.clear();
-              cart.clear();
-              Navigator.of(context).pop();
+            onPressed: () async {
+              int statusCode = await Service.gI().placeOrder(user);
+              switch(statusCode){
+                case 1:{
+                  Provider.of<Orders>(context, listen: false)
+                      .addOrders(cart.items.values.toList(), cart.totalAmount);
+                  items.clear();
+                  cart.clear();
+                  Service.gI().getUserBalance(user);
+                  Navigator.of(context).pop();
+                  break;
+                }
+                case 0:{
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Số dư không đủ để thanh toán !'),
+                      duration: Duration(seconds: 2), // Thời gian hiển thị thông báo
+                    ),
+                  );
+                  break;
+                }
+                case -1:{
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('Có lỗi trong quá trình thanh toán!'),
+                      duration: Duration(seconds: 2), // Thời gian hiển thị thông báo
+                    ),
+                  );
+                  break;
+                }
+              }
             },
             child: const Text(
               'Place Order',
@@ -86,7 +115,8 @@ class OrderConfirmationScreen extends StatelessWidget {
                 fontSize: 15,
               ),
             ),
-          )
+          ),
+          SizedBox(height: 20,)
         ],
       ),
     );
